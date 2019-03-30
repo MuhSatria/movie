@@ -1,0 +1,30 @@
+.box-sizedetail {
+    justify-content: center;
+}
+
+
+.c-detailbox {
+    display: flex;
+
+    .c-bgdetailmovie {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        width: 300px;
+        height: 450px;
+    }
+
+    .c-bodydetail {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 305px;
+        box-sizing: border-box;
+        width: 120vh;
+        height: 78vh;
+    }
+    
+    .c-sinopsisdetail {
+        box-sizing: border-box;
+    }
+}

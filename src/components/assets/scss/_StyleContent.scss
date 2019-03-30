@@ -1,0 +1,28 @@
+.c-card.size {
+    position: relative;
+    margin-top: 20px;
+
+    .bg-imgcard {
+        display: flex;
+        width: 185px;
+        height: 278px;
+        cursor: pointer;
+    }
+    .c-bodytext{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 187px;
+        // width: 260px;
+        height: 275px;
+        overflow: hidden;
+    }
+    .c-judul {
+        text-align: left;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .c-sinopsis {
+        text-align: justify;
+    }
+}
