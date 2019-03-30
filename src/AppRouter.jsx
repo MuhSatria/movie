@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Homepages from './components/pages/Homepages';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageList from './components/listpage/PageList';
-import DetailPage from './components/detail/DetailPage';
+import DetailPage from './components/listpage/DetailPage';
 
 
 class AppRouter extends Component {
@@ -13,7 +13,7 @@ class AppRouter extends Component {
                 <div>
                     <Route exact path='/' component={Homepages} />
                     <Route path='/listfilem' component={PageList} />
-                    <Route path='/detailpage' component={DetailPage} />
+                    <Route path='/detailpage/:movie_id' component={DetailPage} />
                 </div>
             </BrowserRouter>
         );
