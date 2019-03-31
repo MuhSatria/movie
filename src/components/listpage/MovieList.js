@@ -13,8 +13,7 @@ class MovieList extends React.Component {
     super(props);
     this.state = {
       movie: [],
-      judul:'',
-      movie_id:''
+      judul:''
     }
   }
 
@@ -24,11 +23,6 @@ class MovieList extends React.Component {
       this.setState({
         movie: res.data.results
       });
-      // this.setState({
-      //   movie_id: 
-      // })
-      console.log('iki data cok', this.state.movie);
-      console.log('bismillah', this.state.movie_id)
     });
     Axios.get(`https://api.themoviedb.org/3/movie=${this.props.movie_id}?api_key=35170086dc3e362495f520ef00deb27c&language=en-US`)
     .then(res => {
@@ -38,7 +32,6 @@ class MovieList extends React.Component {
     })
   }
   render () { 
-    // console.log('Id ne cox', this.state.movie_id);
     const looping = this.state.movie.map((prod, index) => {    
         return(
          <Col md='6' key={index}>
@@ -51,19 +44,6 @@ class MovieList extends React.Component {
          </Col>
         )}
     );
-
-    // const detailmovie = this.state.map((det, index) => {
-    //   return(
-    //     <DetailPage key={index}
-    //       images={det.poster_path}
-    //       title={det.title}
-    //       deskripsi={det.overview}
-    //     />
-    //   )}
-    // );
-      
-    console.log('hore', this.state.movie_id);
-    console.log('pye', this.state.title);
     return(
         <div>
           {/* <Navbars/> */}

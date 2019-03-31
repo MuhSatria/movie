@@ -39,9 +39,6 @@ class Navbars extends React.Component {
               <NavItem>
                 <Link to="/listfilem">List Movie</Link>
               </NavItem>
-              <NavItem>
-                <Link to="/detailpage">Detail Page</Link>
-              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
