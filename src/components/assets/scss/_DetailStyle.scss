@@ -1,5 +1,7 @@
 .box-sizedetail {
+    background-color:#eee;
     justify-content: center;
+    padding-top: 80px;
 }
 
 
@@ -15,13 +17,7 @@
     }
 
     .c-bodydetail {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        left: 305px;
-        box-sizing: border-box;
-        width: 120vh;
-        height: 78vh;
+        
     }
     
     .c-sinopsisdetail {

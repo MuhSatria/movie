@@ -13,7 +13,7 @@ class AppRouter extends Component {
                 <div>
                     <Route exact path='/' component={Homepages} />
                     <Route path='/listfilem' component={PageList} />
-                    <Route path='/detailpage/:movie_id' component={DetailPage} />
+                    <Route path='/detailpage/:movie_id/:title' component={DetailPage} />
                 </div>
             </BrowserRouter>
         );
