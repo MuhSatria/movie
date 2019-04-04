@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, CardTitle, CardText, CardBody, CardSubtitle,
 import '../assets/MainStyle.scss';
 import { Redirect } from 'react-router-dom';
 import Axios from 'axios';
+import Navbars from '../pages/Navbars';
 
 
 
@@ -14,44 +15,33 @@ class DetailPage extends Component {
     }
   }
 
-  componentDidMount(){
-    Axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=35170086dc3e362495f520ef00deb27c&language=en-US&page=1`)
+  componentDidMount() {
+    Axios.get(`https://api.themoviedb.org/3/movie/now_playing/${this.props.id}?api_key=35170086dc3e362495f520ef00deb27c&language=en-US&page=1`)
     .then(res => {
       const title = res.data.results.title;
+      const overview = res.data.results.overview;
+      const poster_path = res.data.results.poster_path;
       this.setState({
-        title: res.data.results.id
+        title, overview, poster_path
       });
-      this.setState({
-        movie: res.data.results
-      });
-      console.log('bismillah', this.state.title)
-    });
-    Axios.get(`https://api.themoviedb.org/3/movie=${this.props.movie_id}?api_key=35170086dc3e362495f520ef00deb27c&language=en-US`)
-    .then(res => {
-      this.setState({
-        movie_id:`${res.data.id}`
-      });
-      this.setState({
-        images:`${res.data.results.poster_path}`
-      });
-      this.setState({
-        title:`${res.data.results.title}`
-      })
-    });
+    })
   }
     render() {
+      // let { title, deskripsi, images } = this.props.movie
+      console.log('ini props', this.props)
         return (
             <div className="box-sizedetail">
+            <Navbars/>
             <Container>
                 <Col sm='12'>
                 <Card className="c-detailbox">
-                      <CardImg className="c-bgdetailmovie" src="" alt="Card image cap" />
+                      <CardImg className="c-bgdetailmovie" id={this.props.id} src={this.state.poster_path} alt="Card image cap" />
                       <CardBody className="c-bodydetail">
-                        <CardTitle className="c-judul">
-                          
+                        <CardTitle>
+                          {this.state.title} How To Train Your Dragon
                         </CardTitle>
-                        <CardText className="c-sinopsisdetail">
-                          
+                        <CardText>
+                          {this.state.deskripsi} djdjdjdjdj
                         </CardText>
                       </CardBody>
                 </Card>
