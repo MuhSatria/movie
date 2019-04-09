@@ -1,12 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import '../assets/MainStyle.scss';
-import Axios from 'axios';
+import axios from 'axios';
 import AppCard from '../pages/Card'
 import Navbars from '../pages/Navbars';
 import '../assets/MainStyle.scss';
 import DetailPage from '../listpage/DetailPage';
 import '../assets/MainStyle.scss';
+
+const porter_uri = 'http://image.tmdb.org/t/p';
 
 // const Contents = (props) => {
 class NowPlay extends React.Component {
@@ -14,24 +16,23 @@ class NowPlay extends React.Component {
     super(props);
     this.state = {
       nowplaying: [],
-      getdata: [],
+      getdata: '',
       test: []
     }
   }
 
   componentDidMount(){
-    Axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=35170086dc3e362495f520ef00deb27c&language=en-US&page=1`)
+    axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=35170086dc3e362495f520ef00deb27c&language=en-US&page=1`)
     .then(res => {
       // const test = res.data.results.map( obj => obj.data);
       this.setState({
-        nowplaying: res.data.results,
-        getdata: res
+        nowplaying: res.data.results
       });
       console.log('data api', this.state.nowplaying);
       console.log('iki data', this.state.getdata);
       console.log('testing', this.state.test);
     });
-    Axios.get(`https://api.themoviedb.org/3/movie=${this.props.movie_id}${this.props.title}?api_key=35170086dc3e362495f520ef00deb27c&language=en-US`)
+    axios.get(`https://api.themoviedb.org/3/movie=${this.props.movie_id}${this.props.title}?api_key=35170086dc3e362495f520ef00deb27c&language=en-US`)
     .then(res => {
       const test = res.map(obj => obj.data);
       this.setState({
@@ -41,9 +42,16 @@ class NowPlay extends React.Component {
       });
       console.log('new', this.state.name);
     });
+    axios.get(`https://api.themoviedb.org/3/movie/${this.props.match}?api_key=35170086dc3e362495f520ef00deb27c&language=en-US`)
+    .then(res => {
+      console.log('uye', res.data)
+      this.setState({
+        getdata: res.data
+      })
+    })
   }
   render () {
-    console.log('data', this.state.test)
+    console.log('data', this.state.getdata)
     console.log('bismillah', this.props)
     const looping = this.state.nowplaying.map((prod, index) => {    
         return(
